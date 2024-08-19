@@ -3,6 +3,7 @@ import style from '../css/userAuthPage.module.css';
 import Navbar from '../component/navbar';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import swal from 'sweetalert';
 import { authUserLogin, authUserSignup, sendOtp, updatePassword, forgetPassword } from '../redux/slice/auth';
 
 const LoginSignupPage = () => {
@@ -131,7 +132,6 @@ const LoginSignupPage = () => {
                     swal("Warning!", "Passwords do not match", "warning");
                 }
             } else {
-                // Send OTP for forgot password
                 dispatch(forgetPassword({ email: loginData.email }))
                     .then(() => {
                         swal("OTP sent to your email", "success");
