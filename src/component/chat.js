@@ -119,7 +119,6 @@ function Chat({ chat, chatID, chatName, backbutton }) {
     };
 
     const typingHandler = (e) => {
-        // setNewMessage(e.target.value);
         setMessage(e.target.value)
 
         if (!socketConnect) return;
