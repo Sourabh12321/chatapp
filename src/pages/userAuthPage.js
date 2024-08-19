@@ -58,7 +58,7 @@ const LoginSignupPage = () => {
 
             dispatch(sendOtp({ email: signData.email, name: signData.name }))
                 .then(() => {
-                    alert('OTP sent to your email');
+                    swal("OTP sent to your email");
                 })
                 .catch((error) => {
                     console.error('Failed to send OTP:', error);
@@ -78,7 +78,7 @@ const LoginSignupPage = () => {
                         localStorage.setItem('token', response?.payload?.token);
                         localStorage.setItem('name', response?.payload?.user?.name);
                         localStorage.setItem('userId', response?.payload?.user?._id);
-                        alert('User Login successfully');
+                        swal("User Login successfully", "success");
                         setTimeout(() => {
                             navigate('/chat');
                         }, 100);
@@ -97,12 +97,12 @@ const LoginSignupPage = () => {
                     .then((response) => {
                         let msg = response?.payload?.msg;
                         if (msg === 'Invalid or expired OTP') {
-                            alert('Wrong OTP');
+                            swal("Warning!", "Wrong OTP", "warning");
                         } else if (msg === 'User already registered') {
-                            alert('User already registered');
+                            swal("Warning!", "User already registered", "warning");
                             setIsLogin(true);
                         } else if (msg === 'User registered successfully') {
-                            alert('User registered successfully');
+                            swal("User registered successfully", "success");
                             setIsLogin(true);
                         }
                     })
@@ -118,9 +118,9 @@ const LoginSignupPage = () => {
                         .then((response) => {
                             console.log("response",response)
                             if (response?.payload?.msg == 'Invalid or expired OTP' || response?.payload?.msg == 'OTP not found or expired') {
-                                alert("Wrong otp")
+                                swal("Warning!", "Wrong OTP", "warning");
                             } else if (response?.payload?.msg == 'Password updated successfully') {
-                                alert("Password updated successfully")
+                                swal("Password updated successfully", "success");
                                 setIsLogin(true);
                             }
                         })
@@ -128,13 +128,13 @@ const LoginSignupPage = () => {
                             console.error('Failed to verify OTP:', error);
                         });
                 } else {
-                    alert('Passwords do not match');
+                    swal("Warning!", "Passwords do not match", "warning");
                 }
             } else {
                 // Send OTP for forgot password
                 dispatch(forgetPassword({ email: loginData.email }))
                     .then(() => {
-                        alert('OTP sent to your email');
+                        swal("OTP sent to your email", "success");
                         setOtpSent(true);
                     })
                     .catch((error) => {
