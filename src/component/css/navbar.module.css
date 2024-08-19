@@ -1,0 +1,60 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #2e2e2e;
+    color: black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+    height: 50px;
+}
+
+.user {
+    display: flex;
+}
+
+.user p {
+    font-size: 16px;
+    color: white;
+    margin-right: 10px;
+}
+
+.user button {
+    padding: 0px 12px;
+    background-color: rgb(20, 13, 13);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+
+
+
+/* Responsive design for screens under 800px */
+@media (max-width: 800px) {
+    .chatContainer {
+        flex-direction: column;
+        height: calc(100vh - 60px); /* Adjust height based on navbar height */
+        overflow: hidden; /* Prevent scrolling */
+    }
+
+    .chatList {
+        width: 100%;
+        height: auto;
+        overflow-y: auto; /* Allow scrolling within the chat list */
+        border-right: none;
+        border-bottom: 1px solid #333; /* Darker border for mobile */
+    }
+
+    .chatBox {
+        width: 100%;
+        height: 100%;
+        overflow-y: auto; /* Allow scrolling within the chat box */
+    }
+}

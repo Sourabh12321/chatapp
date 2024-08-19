@@ -1,0 +1,103 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 89vh;
+  background-color: #121212;
+}
+
+.formContainer {
+  background: #1e1e1e;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 400px;
+  padding: 20px;
+  box-sizing: border-box;
+  color: #e0e0e0;
+}
+
+.toggleButtons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.toggleButtons button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-bottom: 2px solid transparent;
+  color: #e0e0e0;
+  transition: all 0.3s ease;
+}
+
+.toggleButtons button.active {
+  border-bottom: 2px solid #bb86fc;
+  color: #bb86fc;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form h2 {
+  margin-bottom: 20px;
+  color: #bb86fc;
+}
+
+.form input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  font-size: 16px;
+  background: #2e2e2e;
+  color: #e0e0e0;
+}
+
+.form input::placeholder {
+  color: #b3b3b3;
+}
+
+.form button {
+  padding: 10px;
+  background-color: #bb86fc;
+  color: #1e1e1e;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.form button:hover {
+  background-color: #a375ff;
+}
+
+.error {
+  color: #cf6679;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .formContainer {
+      padding: 15px;
+  }
+
+  .form input {
+      padding: 8px;
+      font-size: 14px;
+  }
+
+  .form button {
+      padding: 8px;
+      font-size: 14px;
+  }
+}
