@@ -83,6 +83,8 @@ export const authUserLogin = createAsyncThunk('authLogin', async (data) => {
 }) 
 
 export const userList = createAsyncThunk('userList',async (search) =>{
+    const token = localStorage.getItem('token'); // Adjust based on your token storage method
+
     const response = await fetch(`${BASE_URL}/user?search=${search}`,{
         method: 'GET',
         headers: {
